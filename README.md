@@ -5,7 +5,7 @@ All the analysis was done by system analysts and following description was creat
 
 Insurance company wants to start issuing private property policies to their customers.
 System analysts found out that there will be a policy which will have objects (e.g. a House) and that objects
-will have sub-objects (e.g. eletronic devices such as TV).
+will have sub-objects (e.g. electronic devices such as TV).
 One policy can contain multiple objects. One object can contain multiple sub-objects.
 In this iteration, customer needs a functionality that calculates premium (a price that will be paid by each
 client that will buy this insurance) for the policy.
