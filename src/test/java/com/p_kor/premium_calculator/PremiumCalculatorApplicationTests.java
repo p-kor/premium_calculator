@@ -1,7 +1,6 @@
 package com.p_kor.premium_calculator;
 
 import com.p_kor.premium_calculator.model.*;
-import com.p_kor.premium_calculator.service.TypeRiskStrategyService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,9 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class PremiumCalculatorApplicationTests {
-
-    @Autowired
-    private TypeRiskStrategyService typeRiskStrategyService;
 
     @Autowired
     private PremiumCalculator premiumCalculator;
