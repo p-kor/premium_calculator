@@ -15,6 +15,7 @@ public class TypeRiskStrategyService {
         riskStrategies = new EnumMap<>(RiskType.class);
         riskStrategies.put(RiskType.FIRE, new FireTypeRiskStrategyImp());
         riskStrategies.put(RiskType.THEFT, new TheftTypeRiskStrategyImp());
+        riskStrategies.put(RiskType.FLOOD, new FloodTypeRiskStrategyImp());
     }
 
     public BigDecimal getRiskInsuranceCoefficient(RiskType riskType, BigDecimal insuredAmount) {
