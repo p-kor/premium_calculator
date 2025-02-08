@@ -14,8 +14,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 class PremiumCalculatorApplicationTests {
 
+    private final PremiumCalculator premiumCalculator;
+
     @Autowired
-    private PremiumCalculator premiumCalculator;
+    PremiumCalculatorApplicationTests(PremiumCalculator premiumCalculator) {
+        this.premiumCalculator = premiumCalculator;
+    }
 
     @Test
     void acceptanceTest1() {
@@ -30,9 +34,9 @@ class PremiumCalculatorApplicationTests {
 
         Policy policy = new Policy("LV20-02-100000-5", PolicyStatus.APPROVED, objects);
 
-        BigDecimal premium = premiumCalculator.calculate(policy);
+        BigDecimal actualResult = premiumCalculator.calculate(policy);
 
-        assertEquals(EXPECTED_RESULT, premium, "Premium should be 2.28");
+        assertEquals(EXPECTED_RESULT, actualResult, "Premium should be " + EXPECTED_RESULT);
     }
 
     @Test
@@ -50,9 +54,9 @@ class PremiumCalculatorApplicationTests {
 
         Policy policy = new Policy("LV20-02-100000-6", PolicyStatus.APPROVED, objects);
 
-        BigDecimal premium = premiumCalculator.calculate(policy);
+        BigDecimal actualResult = premiumCalculator.calculate(policy);
 
-        assertEquals(EXPECTED_RESULT, premium, "Premium should be 17.13");
+        assertEquals(EXPECTED_RESULT, actualResult, "Premium should be " + EXPECTED_RESULT);
     }
 
     @Test
@@ -70,8 +74,8 @@ class PremiumCalculatorApplicationTests {
 
         Policy policy = new Policy("#@$@!-1", PolicyStatus.REGISTERED, objects);
 
-        BigDecimal premium = premiumCalculator.calculate(policy);
+        BigDecimal actualResult = premiumCalculator.calculate(policy);
 
-        assertEquals(EXPECTED_RESULT, premium, "Premium should be 17.13");
+        assertEquals(EXPECTED_RESULT, actualResult, "Premium should be " + EXPECTED_RESULT);
     }
 }
