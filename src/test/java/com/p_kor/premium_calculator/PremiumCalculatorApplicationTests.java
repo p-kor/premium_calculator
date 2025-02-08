@@ -19,7 +19,7 @@ class PremiumCalculatorApplicationTests {
 
     @Test
     void acceptanceTest1() {
-        BigDecimal EXPECTED_RESULT = new BigDecimal("2.28");
+        final BigDecimal EXPECTED_RESULT = new BigDecimal("2.28");
 
         List<PolicySubObject> subObjects = List.of(
                 new PolicySubObject("TV", new BigDecimal("100.0"), RiskType.FIRE),
@@ -31,12 +31,13 @@ class PremiumCalculatorApplicationTests {
         Policy policy = new Policy("LV20-02-100000-5", PolicyStatus.APPROVED, objects);
 
         BigDecimal premium = premiumCalculator.calculate(policy);
+
         assertEquals(EXPECTED_RESULT, premium, "Premium should be 2.28");
     }
 
     @Test
     void acceptanceTest2() {
-        BigDecimal EXPECTED_RESULT = new BigDecimal("17.13");
+        final BigDecimal EXPECTED_RESULT = new BigDecimal("17.13");
 
         List<PolicySubObject> subObjectsFlat47 = List.of(
                 new PolicySubObject("Air conditioner", new BigDecimal("500.0"), RiskType.FIRE));
@@ -50,12 +51,13 @@ class PremiumCalculatorApplicationTests {
         Policy policy = new Policy("LV20-02-100000-6", PolicyStatus.APPROVED, objects);
 
         BigDecimal premium = premiumCalculator.calculate(policy);
+
         assertEquals(EXPECTED_RESULT, premium, "Premium should be 17.13");
     }
 
     @Test
     void acceptanceTest3() {
-        BigDecimal EXPECTED_RESULT = new BigDecimal("17.13");
+        final BigDecimal EXPECTED_RESULT = new BigDecimal("17.13");
 
         List<PolicySubObject> subObjectsFlat47 = List.of(
                 new PolicySubObject("Air conditioner", new BigDecimal("500.0"), RiskType.FLOOD));
@@ -69,6 +71,7 @@ class PremiumCalculatorApplicationTests {
         Policy policy = new Policy("#@$@!-1", PolicyStatus.REGISTERED, objects);
 
         BigDecimal premium = premiumCalculator.calculate(policy);
+
         assertEquals(EXPECTED_RESULT, premium, "Premium should be 17.13");
     }
 }
