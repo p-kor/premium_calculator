@@ -43,7 +43,8 @@ public class PremiumCalculatorService {
     public BigDecimal calculatePolicyPremium(Policy policy) {
         return getInsuredTotalAmountsByRiskType(policy).entrySet().stream()
                 .map(entry -> calculatePremiumByRiskType(entry.getKey(), entry.getValue()))
-                .reduce(BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP), BigDecimal::add);
+                .reduce(BigDecimal.ZERO, BigDecimal::add)
+                .setScale(2, RoundingMode.HALF_UP);
     }
 
 }
